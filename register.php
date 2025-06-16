@@ -1,16 +1,6 @@
 <?php
 // Koneksi ke database
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "siramono";
-
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Cek koneksi
-if ($conn->connect_error) {
-  die("Koneksi gagal: " . $conn->connect_error);
-}
+require_once 'CRUD/koneksi.php';
 
 // Ambil data dari form
 $username = trim($_POST['username']);
@@ -65,4 +55,3 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-$conn->close();

@@ -3,8 +3,7 @@
 $conn = mysqli_connect("localhost", "root", "", "siramono");
 
 if (!$conn) {
-	echo "Koneksi gagal";
-	die();
+	die("Koneksi gagal: " . mysqli_connect_error());
 } else {
 	//	echo "Koneksi berhasil";
 }

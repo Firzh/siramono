@@ -12,84 +12,77 @@
 <body class="min-h-screen flex items-center justify-center font-sans relative bg-cover bg-center"
   style="background-image: url('./img/bgregister.png');">
 
-  <!-- Navigasi Tengah Atas -->
   <div class="absolute top-6 left-1/2 transform -translate-x-1/2 flex space-x-16 z-10">
     <a href="beranda.html" class="font-bold text-black hover:underline">Beranda</a>
     <a href="#" class="text-black hover:underline">Tanamanku</a>
     <a href="#" class="text-black hover:underline">Komunitas</a>
   </div>
 
-  <!-- Form Container -->
   <div class="w-full max-w-md px-4 py-16 bg-white/60 rounded-3xl z-10">
 
-    <!-- Judul -->
     <h2 class="text-4xl font-bold text-[#4A5E20] text-center mb-2">Create an account</h2>
     <p class="text-sm text-[#4A5E20] text-center mb-6">Your journey starts here, take the first step</p>
 
-    <!-- Form Register -->
-    <div>
-      <label for="username" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Username</label>
-      <input type="text" id="username" name="username" placeholder="Masukkan Username" required
-        class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
-      <p id="usernameError" class="text-red-500 text-sm hidden">Username minimal 3 karakter!</p>
-    </div>
+    <form action="register.php" method="POST">
+      <div>
+        <label for="username" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Username</label>
+        <input type="text" id="username" name="username" placeholder="Masukkan Username" required
+          class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
+        <p id="usernameError" class="text-red-500 text-sm hidden">Username minimal 3 karakter!</p>
+      </div>
 
-    <div>
-      <label for="nama" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Nama</label>
-      <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" required
-        class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
-    </div>
+      <div>
+        <label for="nama" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Nama</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" required
+          class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
+      </div>
 
-    <div> <label for="email" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Email</label>
-      <input type="email" id="email" name="email" placeholder="Masukkan Email" required
-        class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
-      <p id="emailError" class="text-red-500 text-sm hidden">Format email tidak valid!</p>
-    </div>
+      <div> <label for="email" class="block text-sm text-[#4A5E20] font-medium mb-2 mt-3">Email</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan Email" required
+          class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
+        <p id="emailError" class="text-red-500 text-sm hidden">Format email tidak valid!</p>
+      </div>
 
-    <div class="flex gap-4">
-      <div class="relative w-1/2">
-        <div> <label for="konfirmasipassword1"
-            class="block text-sm text-[#4A5E20] font-medium mb-1 mt-3">Password</label>
+      <div class="flex gap-4">
+        <div class="relative w-1/2">
+          <div> <label for="password1"
+              class="block text-sm text-[#4A5E20] font-medium mb-1 mt-3">Password</label>
+          </div>
+          <input type="password" id="password1" name="password1" placeholder="Masukkan Password" required
+            class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
+          <i class="fa fa-eye absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-green-700"
+            onclick="togglePassword('password1', this)"></i>
         </div>
-        <input type="password" id="password1" name="password1" placeholder="Masukkan Password" required
-          class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
-        <i class="fa fa-eye absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-green-700"
-          onclick="togglePassword('password1', this)"></i>
+        <div class="relative w-1/2">
+          <div> <label for="password2" class="block text-sm text-[#4A5E20] font-medium mb-1 mt-3">Konfirmasi
+              Password</label></div>
+          <input type="password" id="password2" name="password2" placeholder="Konfirmasi Password" required
+            class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
+          <i class="fa fa-eye absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-green-700"
+            onclick="togglePassword('password2', this)"></i>
+        </div>
       </div>
-      <div class="relative w-1/2">
-        <div> <label for="konfirmasipassword2" class="block text-sm text-[#4A5E20] font-medium mb-1 mt-3">Konfirmasi
-            Password</label></div>
-        <input type="password" id="password2" name="password2" placeholder="Konfirmasi Password" required
-          class="w-full px-5 py-3 rounded-full bg-[#DDE7B4] placeholder-green-800 focus:outline-none" />
-        <i class="fa fa-eye absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-green-700"
-          onclick="togglePassword('password2', this)"></i>
+      <p id="passwordError" class="text-red-500 text-sm hidden">Password minimal 6 karakter dan harus sama!</p>
+
+      <div class="flex items-start gap-2 text-black text-sm mb-4 mt-4">
+        <input type="checkbox" name="terms" required />
+        <label>
+          Dengan mendaftarkan informasi pribadi mu, Anda setuju dengan
+          <strong>Syarat & Ketentuan</strong> serta <strong>Privasi dan Kebijakan</strong> kami.
+        </label>
       </div>
-    </div>
-    <p id="passwordError" class="text-red-500 text-sm hidden">Password minimal 6 karakter dan harus sama!</p>
 
-    <!-- Checkbox -->
-    <div class="flex items-start gap-2 text-black text-sm mb-4 mt-4">
-      <input type="checkbox" required />
-      <label>
-        Dengan mendaftarkan informasi pribadi mu, Anda setuju dengan
-        <strong>Syarat & Ketentuan</strong> serta <strong>Privasi dan Kebijakan</strong> kami.
-      </label>
-    </div>
-
-    <!-- Tombol -->
-    <button type="submit"
-      class="mt-5 w-full py-3 rounded-full bg-[#7A9148] text-white font-bold hover:bg-green-700 transition">
-      Sign Up
-    </button>
+      <button type="submit"
+        class="mt-5 w-full py-3 rounded-full bg-[#7A9148] text-white font-bold hover:bg-green-700 transition">
+        Sign Up
+      </button>
     </form>
 
-    <!-- Link Login -->
     <p class="text-center text-sm text-green-700 mt-4 mb-2">
       Sudah punya akun? <a href="login.html" class="font-bold text-black hover:underline">Log In</a>
     </p>
   </div>
 
-  <!-- Script untuk toggle password -->
   <script>
     function togglePassword(id, icon) {
       const input = document.getElementById(id);
