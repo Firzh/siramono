@@ -100,6 +100,7 @@ INSERT INTO `tb_tanaman` (`id_tanaman`, `nama_tanaman`, `jenis_tanaman`, `status
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL, -- Kolom 'nama' ditambahkan di sini
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
